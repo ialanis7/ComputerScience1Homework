@@ -54,7 +54,7 @@ int main() {
 	else {
 		answer = "I don't know";
 	}
-	//		Displays the message shown below "Answer: “, answer
+	//		Displays the message shown below "Answer: â€œ, answer
 	cout << "Answer: " << answer << endl;
 	return 0;
 }
