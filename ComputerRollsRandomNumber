@@ -24,7 +24,6 @@ int main()
 {
 	int roll; // The value of the die roll
 	int total_turn = 0; // Player's score for this turn
-
 						// Seed the random number generator
 	srand(static_cast<int> (time(NULL)));
   
