@@ -1,0 +1,55 @@
+/////////////////////////////////////////////////////////////////////
+//
+// Name: Ignacio Alanis Jr
+// Date: 10/21/2016
+// Class: CSCI 1370.04
+// Semester: Fall 2016
+// CSCI/CMPE 1370 Instructor: Gustavo Dietrich
+//
+// Search a dictionary file for the word input by the user.
+//
+/////////////////////////////////////////////////////////////////////
+
+#include<iostream>
+#include<string>
+#include<fstream>
+
+using namespace std;
+
+int main()
+{
+	string word; // The word entered by the user
+	string result; // The word read from the file
+	int counter = 0; // Counts the number of lines read from the file
+	bool found = false; // If the user's word has been found
+	ifstream inFile; // The input file
+
+	//open the dictionary file.
+	inFile.open("dictionary.txt");
+
+	//ask the user to input the word they want to search for.
+	cout << "Enter a word to search in dictionary: ";
+	cin >> word;
+	// Use a while loop to loop through the file.
+
+	while (!inFile.eof()) {
+		// Use break to stop the loop if the word is found
+		inFile >> result;
+		counter++;
+		if (word == result){
+			cout << "word found in line " << counter << endl;
+			found = true;
+
+		}
+		if (found)
+			break;
+	}
+	// If the word is not found display a message.
+	if (!found){
+		cout << "word not found\n";
+		return 1;
+}
+
+	system("pause");
+	return 0;
+}
