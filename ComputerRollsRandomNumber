@@ -1,0 +1,57 @@
+/////////////////////////////////////////////////////////////////////
+//
+// Name: Ignacio Alanis Jr
+// Date: 10/21/2016
+// Class: CSCI 1370.04
+// Semester: Fall 2016
+// CSCI/CMPE 1370 Instructor: Gustavo Dietrich
+//
+// This program creates a simulated player who takes one turn in the
+// Pig dice game. The simulated player keeps rolling the die until
+// the total for the turn is 20 or greater, or until a 1 is rolled.
+// If a 1 is rolled, the player's score for the turn is 0. Otherwise
+// the player's score is the sum of the rolls for the turn.
+//
+/////////////////////////////////////////////////////////////////////
+
+#include<iostream>
+#include<cstdlib>
+#include<time.h>
+
+using namespace std;
+
+int main()
+{
+	int roll; // The value of the die roll
+	int total_turn = 0; // Player's score for this turn
+
+						// Seed the random number generator
+	srand(static_cast<int> (time(NULL)));
+  
+	int highRange = 6, lowRange = 1;
+
+	// Use a while loop to roll the die until the total turn number is 
+	// 20 or greater, or until a 1 is rolled. if a 1 is rolled the 
+	// player gets a 0 for the turn.
+	while (total_turn < 20) {
+		// Use the expression ( rand() % (highRange - lowRange + 1) ) + lowRange
+		// to generate a number within the range 1..6 to simulate the rolling of the die
+		cout << "it's the computer's turn to roll...\n";
+		roll = (rand() % (highRange - lowRange + 1)) + lowRange;
+		if (roll == 1) {
+			cout << "computer rolled a 1, its turn is over.\n\n";
+			total_turn = 0;
+			break;
+		}
+		cout << "the computer rolled a " << roll;
+		total_turn = roll + total_turn;
+		cout << "\nCurrent total for the turn = " << total_turn << endl << endl;
+
+	}
+	//output the number of points the simulated player got for the turn.
+	cout << "computer has completed its turn.\ncomputer got " << total_turn << " points for the turn.\n";
+
+	system("pause");
+	return 0;
+
+}//close main()
